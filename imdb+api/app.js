@@ -17,7 +17,7 @@ async function getFilms(url){
 }
 
 function getClassByRate(vote){
-    if(vote => 7){
+    if(vote > 7){
         return "green";
     }
     else if(vote > 5){
@@ -52,7 +52,7 @@ document.querySelector(".movies").innerHTML = ""; //clearing previous films from
                                 (genre) => `${genre.genre}`
                             )}</div>
                             ${movie.rating &&
-                                `
+                            `
                             <div class="movie__average movie__average--$(getCLassByRate(
                                 movie.rating
                             )}">${movie.rating}</div>
