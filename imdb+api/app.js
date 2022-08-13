@@ -17,7 +17,7 @@ async function getFilms(url){
 }
 
 function getClassByRate(vote){
-    if(vote > 7){
+    if(vote >= 7){
         return "green";
     }
     else if(vote > 5){
@@ -40,7 +40,7 @@ document.querySelector(".movies").innerHTML = ""; //clearing previous films from
         <div class="movie__cover-inner">
                         <img 
                         src = "${movie.posterUrlPreview}" 
-                        class="movie_cover"
+                        class="movie__cover"
                         alt = "${movie.nameRu}"
                         />
                         <div class="movie__cover--darkened"></div>
@@ -53,7 +53,7 @@ document.querySelector(".movies").innerHTML = ""; //clearing previous films from
                             )}</div>
                             ${movie.rating &&
                             `
-                            <div class="movie__average movie__average--$(getCLassByRate(
+                            <div class="movie__average movie__average--${getClassByRate(
                                 movie.rating
                             )}">${movie.rating}</div>
                             `
@@ -62,7 +62,7 @@ document.querySelector(".movies").innerHTML = ""; //clearing previous films from
                             `;
                     moviesEl.appendChild(movieEl);
                         
-                });
+                            });
 }
 
 const form = document.querySelector("form");
